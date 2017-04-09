@@ -6,7 +6,7 @@
 /*   By: varnaud <varnaud@student.42.us.org>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/08 18:48:28 by varnaud           #+#    #+#             */
-/*   Updated: 2017/04/08 21:01:32 by varnaud          ###   ########.fr       */
+/*   Updated: 2017/04/08 21:31:32 by varnaud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,8 @@ typedef struct	s_pgm
 t_pgm			*parse_input(t_option *option);
 void			set_contrast(t_pgm *image);
 int				write_output(t_pgm *image);
+
+t_pgm			*set_sample_image(t_option *option);
 
 //add to libft
 int				ft_strmatch(const char *source, const char *match);

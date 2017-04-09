@@ -6,7 +6,7 @@
 /*   By: varnaud <varnaud@student.42.us.org>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/08 18:37:50 by varnaud           #+#    #+#             */
-/*   Updated: 2017/04/08 21:03:56 by varnaud          ###   ########.fr       */
+/*   Updated: 2017/04/08 21:41:53 by varnaud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,18 +64,18 @@ int				main(int argc, char **argv)
 		return (1);
 	}
 	print_option(option);
-	image = NULL;
+	image = set_sample_image(option);
 	/*
 	if (!(image = parse_input(option)))
 	{
 		ft_fprintf(2, "Invalid input: %s\n", option->input);
 		return (1);
 	}
+	*/
 	set_contrast(image);
 	if (write_output(image))
 	{
 		ft_fprintf(2, "Can't write to output file: %s\n", option->output);
 		return (1);
 	}
-	*/
 }
