@@ -6,7 +6,7 @@
 /*   By: varnaud <varnaud@student.42.us.org>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/08 18:37:50 by varnaud           #+#    #+#             */
-/*   Updated: 2017/04/08 23:49:39 by varnaud          ###   ########.fr       */
+/*   Updated: 2017/04/09 00:30:17 by lwang            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,19 +64,17 @@ int				main(int argc, char **argv)
 		return (1);
 	}
 	print_option(option);
-	image = set_sample_image(option);
-	if (image == NULL)
-	{
-		ft_fprintf(2, "Problem with the sample...\n");
-		return (0);
-	}
-	/*
+	//image = set_sample_image(option);
+	//if (image == NULL)
+	//{
+	//	ft_fprintf(2, "Problem with the sample...\n");
+	//	return (0);
+	//}
 	if (!(image = parse_input(option)))
 	{
 		ft_fprintf(2, "Invalid input: %s\n", option->input);
 		return (1);
 	}
-	*/
 	set_contrast(image);
 	if (write_output(image))
 	{

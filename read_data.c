@@ -6,7 +6,7 @@
 /*   By: varnaud <varnaud@student.42.us.org>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/08 23:26:57 by varnaud           #+#    #+#             */
-/*   Updated: 2017/04/08 23:57:15 by varnaud          ###   ########.fr       */
+/*   Updated: 2017/04/09 00:35:04 by lwang            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,8 +54,12 @@ int			read_data(t_pgm *image, int fd)
 	int		y;
 	int		r;
 
-	x = 0;
+	image->pixel = malloc(sizeof(t_pixel*) * image->height);
 	y = 0;
+	while (y < image->height)
+		image->pixel[y++] = malloc(sizeof(t_pixel) * image->width);
+	y = 0;
+	x = 0;
 	while ((r = gnl(fd, &line)))
 	{
 		if (r == -1)
