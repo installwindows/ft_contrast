@@ -6,7 +6,7 @@
 /*   By: varnaud <varnaud@student.42.us.org>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/08 23:26:57 by varnaud           #+#    #+#             */
-/*   Updated: 2017/04/09 00:35:04 by lwang            ###   ########.fr       */
+/*   Updated: 2017/04/09 00:46:36 by varnaud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,9 @@ int			read_data(t_pgm *image, int fd)
 	int		x;
 	int		y;
 	int		r;
+	int		n;
 
+	n = 0;
 	image->pixel = malloc(sizeof(t_pixel*) * image->height);
 	y = 0;
 	while (y < image->height)
@@ -67,6 +69,9 @@ int			read_data(t_pgm *image, int fd)
 		if (parse_line(image, &x, &y, line))
 			return (1);
 		free(line);
+		if (n % 1000 == 0)
+			ft_printf("line: %d\n", n);
+		n++;
 	}
 	if (x != 0 && y != image->height)
 		return (1);
