@@ -6,13 +6,14 @@
 /*   By: varnaud <varnaud@student.42.us.org>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/08 18:48:28 by varnaud           #+#    #+#             */
-/*   Updated: 2017/04/08 21:31:32 by varnaud          ###   ########.fr       */
+/*   Updated: 2017/04/08 23:47:22 by varnaud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FT_CONTRAST_H
 # define FT_CONTRAST_H
 # include <stdlib.h>
+# include <fcntl.h>
 # include "libft.h"
 # define FTC_F 1 << 0
 # define FTC_O 1 << 1
@@ -49,6 +50,7 @@ typedef struct	s_pgm
 t_pgm			*parse_input(t_option *option);
 void			set_contrast(t_pgm *image);
 int				write_output(t_pgm *image);
+int				read_data(t_pgm *image, int fd);
 
 t_pgm			*set_sample_image(t_option *option);
 

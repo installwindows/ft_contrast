@@ -6,7 +6,7 @@
 /*   By: varnaud <varnaud@student.42.us.org>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/08 21:30:56 by varnaud           #+#    #+#             */
-/*   Updated: 2017/04/08 21:40:10 by varnaud          ###   ########.fr       */
+/*   Updated: 2017/04/08 23:48:46 by varnaud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 t_pgm	*set_sample_image(t_option *option)
 {
+	int		fd;
 	t_pgm	*image;
-	t_pixel	**pixel;
 
 	image = malloc(sizeof(t_pgm));
 	image->option = option;
@@ -25,17 +25,16 @@ t_pgm	*set_sample_image(t_option *option)
 	image->height = 7;
 	image->max_grey_level = 15;
 	image->contrast_level = option->contrast_level;
-	pixel = malloc(sizeof(t_pixel*) * 7);
+	image->pixel = malloc(sizeof(t_pixel*) * 7);
 	for (int i = 0; i < 7; i++)
-	{
-		pixel[i] = malloc(sizeof(t_pixel) * 24);
-		for (int j = 0; j < 24; j++)
-		{
-			pixel[i][j].x = j;
-			pixel[i][j].y = i;
-			pixel[i][j].color = 0;
-		}
-	}
+		image->pixel[i] = malloc(sizeof(t_pixel) * 24);
+	if ((fd = open(option->input, O_RDONLY)) == -1)
+		return (NULL);
+	if (read_data(image, fd))
+		return (NULL);
+	return (image);
+}
+	/*
 	image->pixel = pixel;
 	image->pixel[0][0].color = 0;
 	image->pixel[0][1].color = 0;
@@ -207,3 +206,4 @@ t_pgm	*set_sample_image(t_option *option)
 	image->pixel[6][23].color = 0;
 	return (image);
 }
+*/

@@ -6,11 +6,10 @@
 /*   By: varnaud <varnaud@student.42.us.org>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/08 21:09:57 by varnaud           #+#    #+#             */
-/*   Updated: 2017/04/08 22:01:14 by varnaud          ###   ########.fr       */
+/*   Updated: 2017/04/08 23:46:56 by varnaud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <fcntl.h>
 #include "ft_contrast.h"
 
 int		write_output(t_pgm *image)

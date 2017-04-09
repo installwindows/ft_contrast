@@ -6,7 +6,7 @@
 /*   By: varnaud <varnaud@student.42.us.org>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/08 18:37:50 by varnaud           #+#    #+#             */
-/*   Updated: 2017/04/08 21:41:53 by varnaud          ###   ########.fr       */
+/*   Updated: 2017/04/08 23:49:39 by varnaud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,6 +65,11 @@ int				main(int argc, char **argv)
 	}
 	print_option(option);
 	image = set_sample_image(option);
+	if (image == NULL)
+	{
+		ft_fprintf(2, "Problem with the sample...\n");
+		return (0);
+	}
 	/*
 	if (!(image = parse_input(option)))
 	{
