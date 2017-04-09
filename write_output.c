@@ -6,7 +6,7 @@
 /*   By: varnaud <varnaud@student.42.us.org>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/08 21:09:57 by varnaud           #+#    #+#             */
-/*   Updated: 2017/04/08 23:46:56 by varnaud          ###   ########.fr       */
+/*   Updated: 2017/04/09 14:13:57 by varnaud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,8 @@ int		write_output(t_pgm *image)
 	y = 0;
 	while (y < image->height)
 	{
+		if (y % 100 == 0)
+			ft_printf("writing line: %d\n", y);
 		x = 0;
 		while (x < image->width)
 		{
@@ -37,8 +39,10 @@ int		write_output(t_pgm *image)
 			x++;
 		}
 		ft_fprintf(fd, "\n");
+		free(image->pixel[y]);
 		y++;
 	}
+	free(image->pixel);
 	close(fd);
 	return (0);
 }

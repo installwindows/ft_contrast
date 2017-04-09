@@ -6,7 +6,7 @@
 #    By: varnaud <varnaud@student.42.us.org>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/04/08 18:45:25 by varnaud           #+#    #+#              #
-#    Updated: 2017/04/09 00:32:12 by lwang            ###   ########.fr        #
+#    Updated: 2017/04/09 14:07:55 by varnaud          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,6 +26,8 @@ all: $(NAME)
 
 $(NAME): libft.a $(OBJ) ft_contrast.h
 	gcc $(OBJ) -o $(NAME) $(CFLAGS) -Llibft -lft
+
+$(OBJ): ft_contrast.h
 
 libft.a:
 	make -C libft

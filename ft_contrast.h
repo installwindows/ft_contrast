@@ -6,7 +6,7 @@
 /*   By: varnaud <varnaud@student.42.us.org>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/08 18:48:28 by varnaud           #+#    #+#             */
-/*   Updated: 2017/04/08 23:47:22 by varnaud          ###   ########.fr       */
+/*   Updated: 2017/04/09 14:05:29 by varnaud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,9 +21,9 @@
 
 typedef struct	s_pixel
 {
-	int			x;
-	int			y;
-	int			color;
+	short		x;
+	short		y;
+	short		color;
 }				t_pixel;
 
 typedef struct	s_option
