@@ -6,7 +6,7 @@
 /*   By: varnaud <varnaud@student.42.us.org>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/09 19:59:17 by varnaud           #+#    #+#             */
-/*   Updated: 2017/04/09 20:24:19 by varnaud          ###   ########.fr       */
+/*   Updated: 2017/04/09 21:47:25 by varnaud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,14 +23,14 @@ t_tp_thread	*tp_create(int n)
 	return (tp);
 }
 
-int			tp_exec_queue_add(t_tp_thread *tp, void (*job)(void *), void *data)
+int			tp_exec_queue_add(t_tp_thread *tp, void *(*job)(void *), void *data)
 {
 	pthread_attr_t	attr;
 
 	if (tp == NULL || tp->size == tp->current)
 		return (1);
 	pthread_attr_init(&attr);
-	pthread_create(&tp->pool[tp->current++], &attr, job, &data);
+	pthread_create(&tp->pool[tp->current++], &attr, job, data);
 	return (0);
 }
 
