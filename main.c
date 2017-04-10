@@ -6,7 +6,7 @@
 /*   By: varnaud <varnaud@student.42.us.org>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/08 18:37:50 by varnaud           #+#    #+#             */
-/*   Updated: 2017/04/09 00:30:17 by lwang            ###   ########.fr       */
+/*   Updated: 2017/04/09 20:59:43 by varnaud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,13 +46,14 @@ static t_option	*parse_argv(char **argv)
 	return (option);
 }
 
+/*
 static void		print_option(t_option *option)
 {
 	ft_printf("flags: %b\n", option->flags);
 	ft_printf("input: %s\noutput: %s\ncontrast level: %d\n", option->input,
 			option->output, option->contrast_level);
 }
-
+*/
 int				main(int argc, char **argv)
 {
 	t_pgm		*image;
@@ -63,19 +64,22 @@ int				main(int argc, char **argv)
 		usage();
 		return (1);
 	}
-	print_option(option);
+	//print_option(option);
 	//image = set_sample_image(option);
 	//if (image == NULL)
 	//{
 	//	ft_fprintf(2, "Problem with the sample...\n");
 	//	return (0);
 	//}
+	ft_printf("Reading input.\n");
 	if (!(image = parse_input(option)))
 	{
 		ft_fprintf(2, "Invalid input: %s\n", option->input);
 		return (1);
 	}
+	ft_printf("Setting contrast.\n");
 	set_contrast(image);
+	ft_printf("Writing output.\n");
 	if (write_output(image))
 	{
 		ft_fprintf(2, "Can't write to output file: %s\n", option->output);

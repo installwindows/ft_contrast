@@ -6,79 +6,11 @@
 /*   By: lwang <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/08 20:20:16 by lwang             #+#    #+#             */
-/*   Updated: 2017/04/09 00:29:37 by lwang            ###   ########.fr       */
+/*   Updated: 2017/04/09 20:57:55 by varnaud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_contrast.h"
-
-// void	error(char *s)
-// {
-// 	ft_putstr(s);
-// 	return (NULL);
-// }
-
-// char *strncut(char *s, int n)
-// {
-// 	char *dst;
-// 	int i;
-// 	int j;
-
-// 	if (n > ft_strlen(s))
-// 		return (NULL);
-// 	i = 0;
-// 	j = 0;
-// 	dst = s;
-// 	while (s[i++])
-// 		dst[j++] = s[i++ + n];
-// 	dst[j] = '\0';
-// 	return (dst);
-// }
-
-
-// int	ft_nbrlen(int nbr)
-// {
-// 	int i;
-
-// 	i = 0;
-// 	while (nbr >= 1)
-// 	{
-// 		nbr /= 10;
-// 		i++;
-// 	}
-// 	return (i);
-// }
-
-// t_pixel	**each_line(char **s, int j, t_pgm **info)
-// {
-// 	int i;
-
-// 	i = 0;
-// 	while (s[i])
-// 		i++;
-// 	if (i != info->info->width && s[info->info->width + 1] != '#')
-// 		error("wrong file body");
-// 	info->pixel[j] = (t_pixel**)malloc(sizeof(t_pixel*) * (i + 1));
-// 	i = 0;
-// 	while (s[i])
-// 	{
-// 		info->pixel-> = (t_pixel*)malloc(sizeof(t_pixel))
-// 		info->pixel->
-// 	}
-
-// }
-
-// void	check_image(int fd, char *line, t_pgm **info)
-// {
-// 	int j;
-
-// 	j = 0;
-// 	while (gnl(fd, &line))
-// 	{
-// 		info->pixel[j] = each_line(ft_strsplit(line, ' '), j, info);
-// 		j++;
-// 	}
-// }
 
 static t_pgm	*read_header(t_option *option, int fd)
 {
@@ -151,11 +83,12 @@ static t_pgm	*read_header(t_option *option, int fd)
 	return (info);
 }
 
-// static int read_data(t_pgm *image, int fd)
-// {
-// 	check_image(fd, line, &info);
-// 	return (0);
-// }
+static void	print_header(t_pgm *image)
+{
+	ft_printf("header of %s:\n", image->option->input);
+	ft_printf("width: %d\nheight: %d\n", image->width, image->height);
+	ft_printf("max grey level: %d\n", image->max_grey_level);
+}
 
 t_pgm	*parse_input(t_option *option)
 {
@@ -173,6 +106,7 @@ t_pgm	*parse_input(t_option *option)
 		ft_fprintf(2, "Problem parsing the header of file: %s\n", option->input);
 		return (NULL);
 	}
+	print_header(info);
 	if (read_data(info, fd))
 	{
 		ft_fprintf(2, "Problem parsing the data of file: %s\n", option->input);

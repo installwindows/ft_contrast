@@ -6,7 +6,7 @@
 /*   By: varnaud <varnaud@student.42.us.org>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/08 23:26:57 by varnaud           #+#    #+#             */
-/*   Updated: 2017/04/09 00:46:36 by varnaud          ###   ########.fr       */
+/*   Updated: 2017/04/09 20:51:09 by varnaud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,9 +70,10 @@ int			read_data(t_pgm *image, int fd)
 			return (1);
 		free(line);
 		if (n % 1000 == 0)
-			ft_printf("line: %d\n", n);
+			ft_printf("line: %d\r", n);
 		n++;
 	}
+	ft_printf("\n");
 	if (x != 0 && y != image->height)
 		return (1);
 	close(fd);
